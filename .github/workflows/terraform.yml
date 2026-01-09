@@ -45,7 +45,7 @@ jobs:
         run: terraform workspace select dev || terraform workspace new dev
 
       - name: Terraform Plan
-        run: terraform plan -var-file=terraform.tfvars -out=tfplan
+        run: terraform plan -out=tfplan
 
       - name: Terraform Apply (Auto-approve)
         if: github.ref == 'refs/heads/main'
