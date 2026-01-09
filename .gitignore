@@ -1,0 +1,19 @@
+# Local Terraform files
+*.tfstate
+*.tfstate.backup
+.terraform/
+
+# Crash logs
+crash.log
+
+# Sensitive variables
+terraform.tfvars
+*.tfvars.json
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
