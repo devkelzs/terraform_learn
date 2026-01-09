@@ -1,12 +1,17 @@
-name: Terraform CI/CD
+name: Github AWS OIDC
 
 on:
   push:
     branches:
       - main
+      - aws-oidc-test
   pull_request:
     branches:
       - main
+
+permissions:
+  id-token: write     # REQUIRED for OIDC
+  contents: read
 
 jobs:
   terraform:
@@ -15,15 +20,21 @@ jobs:
 
     env:
       AWS_REGION: us-east-1
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: us-east-1
+      - name: Verify AWS Identity
+        run: aws sts get-caller-identity
 
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v2
+        uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: 1.7.2
 
@@ -38,4 +49,5 @@ jobs:
 
       - name: Terraform Apply (Auto-approve)
         if: github.ref == 'refs/heads/main'
-        run: terraform apply -auto-approve tfplan
+        run: terraform apply -auto-appro
+
