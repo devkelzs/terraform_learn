@@ -3,6 +3,7 @@ variable "instance_type" {
 }
 variable "ami" {
   description = "Aim for ec2 instances"
+  default = "ami-0ecb62995f68bb549"
   type        = string
 }
 variable "name" {
