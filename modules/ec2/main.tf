@@ -5,6 +5,8 @@ resource "aws_instance" "this" {
 
   vpc_security_group_ids = [var.security_group_id]
 
+  user_data = file("${path.module}/user_data.sh")
+
   tags = {
     Name = var.name
   }
