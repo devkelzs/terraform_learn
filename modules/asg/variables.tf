@@ -25,3 +25,9 @@ variable "user_data" {
 variable "name" {
   type = string
 }
+variable "instance_profile" {
+  description = "IAM instance profile name for EC2 instances"
+  type        = string
+}
+
+

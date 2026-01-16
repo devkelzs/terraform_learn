@@ -11,11 +11,6 @@ variable "vpc_cidr" {
   type        = string
 }
 
-variable "public_subnet_cidr" {
-  description = "CIDR block for public subnet"
-  type        = string
-}
-
 variable "private_subnet_cidr" {
   description = "CIDR block for private subnet"
   type        = string
@@ -31,3 +26,15 @@ variable "instance_type" {
   description = "EC2 instance type"
   type        = string
 }
+# Availability Zones
+variable "az_1" {
+  description = "The first availability zone"
+  type        = string
+}
+variable "az_2" {
+  description = "The second availability zone"
+  type        = string
+}
+variable "public_subnet_cidr_1" {}
+variable "public_subnet_cidr_2" {}
+

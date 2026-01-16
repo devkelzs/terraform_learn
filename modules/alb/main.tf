@@ -4,7 +4,7 @@ resource "aws_lb" "this" {
   internal           = false
 
   security_groups = [var.alb_sg_id]
-  subnets         = var.public_subnet_ids
+  subnets         = var.public_subnet_id
 }
 
 resource "aws_lb_target_group" "this" {
