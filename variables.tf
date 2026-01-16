@@ -35,6 +35,10 @@ variable "az_2" {
   description = "The second availability zone"
   type        = string
 }
-variable "public_subnet_cidr_1" {}
-variable "public_subnet_cidr_2" {}
+variable "public_subnet_cidr_1" {
+  type = string
+}
+variable "public_subnet_cidr_2" {
+  type = string
+}
 
