@@ -1,10 +1,10 @@
 # Subnets
 output "public_subnet_id" {
-  value = module.vpc.public_subnet_id
+  value = module.vpc.public_subnet_ids
 }
 
 output "private_subnet_id" {
-  value = module.vpc.private_subnet_id
+  value = module.vpc.private_subnet_ids
 }
 
 # Security groups

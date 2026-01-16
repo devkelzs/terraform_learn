@@ -1,6 +1,6 @@
 # AWS provider
 variable "region" {
-  description = "AWS region to deploy resources in"
+  description = "AWS region to deploy  in"
   type        = string
   default     = "us-east-1"
 }
@@ -8,11 +8,6 @@ variable "region" {
 # VPC configuration
 variable "vpc_cidr" {
   description = "CIDR block for the VPC"
-  type        = string
-}
-
-variable "public_subnet_cidr" {
-  description = "CIDR block for public subnet"
   type        = string
 }
 
@@ -31,3 +26,19 @@ variable "instance_type" {
   description = "EC2 instance type"
   type        = string
 }
+# Availability Zones
+variable "az_1" {
+  description = "The first availability zone"
+  type        = string
+}
+variable "az_2" {
+  description = "The second availability zone"
+  type        = string
+}
+variable "public_subnet_cidr_1" {
+  type = string
+}
+variable "public_subnet_cidr_2" {
+  type = string
+}
+
